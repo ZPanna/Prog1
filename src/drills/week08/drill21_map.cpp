@@ -10,7 +10,8 @@ using namespace std;
 template<typename K, typename V>
 void print(const std::map<K, V>& map) {
 
-    for (auto const& e : map) {
+    for (const auto& e : map) {
+        //std::pair<string, int> p;
         std::cout << e.first << "\t" << e.second << std::endl;
     }
 }
@@ -46,9 +47,10 @@ int main() {
 
         print(msi);
 
-        int sum = 0;
-        for (const auto& e : msi)
-            sum += e.second;
+        //int sum = 0;
+        //for (const auto& e : msi)
+        //    sum += e.second;
+        int sum = std::accumulate(std::begin(msi), std::end(msi), 0, [](const int previous, const std::pair<string, int>& current){ return previous + current.second;});
         std::cout << "Sum of elements: " << sum << std::endl;
 
         std::map<int, string> mis;

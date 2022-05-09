@@ -28,7 +28,7 @@ const T& S<T>::get() const{
 
 template<typename T>
 void S<T>::operator=(const T& s){
-	val = s;
+	 
 }
 
 template<typename T>
@@ -42,7 +42,7 @@ std::ostream& operator<<(ostream& os,vector<T>& v){
 	os << "{ ";
 	for (int i = 0; i < v.size();++i)
 	{
-		os << v[i] << (i < v.size()-1 ? ", ": " ");
+		os << v[i] << (i < v.size()-1 ? ", " : " ");
 	}
 	os << "}\n";
 	return os;
@@ -77,14 +77,7 @@ int main(){
 	cout << "S<char> : " << sc.get() << endl;
 	cout << "S<double> : " << sd.get() << endl;
 	cout << "S<string> : " << ss.get() << endl;
-	//cout << "S<vector<int>> : " << svi.val << endl;
-    	//cout << "S<std::vector> : " << svi.get() << endl;
-
-	cout << "S<vector<int>> : ";
-	for(auto& a : svi.get()){
-		cout << a << ' ';
-	}
-	cout << endl;
+    cout << "S<std::vector> : " << svi.get() << endl;
 
 	sc.set('s');
 	cout << "S<char>: " << sc.get() << endl;

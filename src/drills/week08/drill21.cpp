@@ -66,7 +66,8 @@ int main() {
     vi.push_back(Item{"horse shoe", 99, 12.34});
     vi.push_back(Item{"Canon S400", 9988, 499.95});
 
-    vi.erase(std::remove_if(vi.begin(), vi.end(), [](const Item& item) { return item.name == "apple" || item.name == "banana"; }));
+    auto it = std::remove_if(vi.begin(), vi.end(), [](const Item& item) { return item.name == "apple" || item.name == "banana"; });
+    vi.erase(it);
 
     vi.erase(std::remove_if(vi.begin(), vi.end(), [](const Item& item) { return item.iid == 10 || item.iid == 12; }));
 
